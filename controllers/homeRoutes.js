@@ -3,7 +3,8 @@ const router = require('express').Router();
 // Prevent non logged in users from viewing the homepage
 router.get('/', async (req, res) => {
   try {
-    res.json({"Message": "Success!"})
+    res.render("homepage");
+    //res.json({"Message": "Success!"})
   } catch (err) {
     res.status(500).json(err);
   }
