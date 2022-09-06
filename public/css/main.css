@@ -1,7 +1,7 @@
 /* Main CSS */
 
 h1 {
-  margin-top: 56px;
+  margin-top: 71px;
 }
 
 .btn, .btn-outline-success {
@@ -12,4 +12,8 @@ h1 {
 
 .btn:hover, .btn-outline-success:hover {
   background-color: blue !important;
+}
+
+.navbar-brand {
+  font-size: 30px;
 }

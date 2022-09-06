@@ -10,14 +10,20 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
-  // if (req.session.logged_in) {
-  //   res.redirect('/');
-  //   return;
-  // }
+router.get('/login', async (req, res) => {
+  try {
+    res.render("login");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-  // res.render('login');
+router.get('/dashboard', async (req, res) => {
+  try {
+    res.render("dashboard");
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
