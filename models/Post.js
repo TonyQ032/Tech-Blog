@@ -20,6 +20,9 @@ Post.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    title: {
+      type: DataTypes.STRING,
+    },
     description: {
       type: DataTypes.STRING(1000),
     },
