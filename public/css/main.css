@@ -1,0 +1,15 @@
+/* Main CSS */
+
+h1 {
+  margin-top: 56px;
+}
+
+.btn, .btn-outline-success {
+  background-color: #7762ff !important;
+  color: white;
+  border-color: #cdd4da !important;
+}
+
+.btn:hover, .btn-outline-success:hover {
+  background-color: blue !important;
+}
