@@ -12,11 +12,9 @@ const logIn = async (userEmail, userPassword) => {
 
 // Fetch request for logging out
 const logOut = async () => {
-  fetch("/api/users/logout"), {
-    method: "POST"
-  }
-
-  location.reload()
+  await fetch("/api/users/logout", {
+    method: "POST",
+  })
 }
 
 const signOutButton = document.querySelector("#sign-out");
