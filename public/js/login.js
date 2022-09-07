@@ -7,7 +7,8 @@ const logIn = async (userEmail, userPassword) => {
       email: userEmail,
       password: userPassword
     })
-  })
+  }).then(location.href="/")
+  .catch(err)
 }
 
 const signInButton = document.querySelector("#login-btn");
