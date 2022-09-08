@@ -57,4 +57,22 @@ router.post("/", (req, res) => {
   })
 })
 
+router.put("/:id", (req, res) => {
+  Post.update(
+    {
+      title: req.body.title,
+      description: req.body.description
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  )
+  .then(postData => res.json({"Message": "Post updated successfully!", "Post": postData}))
+  .catch(err => {
+    res.status(500).json(err);
+  })
+})
+
 module.exports = router;
