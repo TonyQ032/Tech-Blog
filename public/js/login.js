@@ -7,9 +7,21 @@ const logIn = async (userEmail, userPassword) => {
       email: userEmail,
       password: userPassword
     })
-  }).then(setTimeout(() => {
-    location.href="/"
-  }, 300))
+  }).then(data => {
+    // If user successfully logs in, they are redirected to homepage
+    if (data.status === 200) {
+      setTimeout(() => {
+        location.href = "/"
+      }, 300)
+    } else {
+      swal({
+        title: "Error!",
+        text: "Incorrect email or password.",
+        icon: "error",
+        button: "Try Again"
+      });
+    }
+  })
   .catch(err)
 }
 
