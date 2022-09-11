@@ -10,9 +10,12 @@ const logIn = async (userEmail, userPassword) => {
   }).then(data => {
     // If user successfully logs in, they are redirected to homepage
     if (data.status === 200) {
+      swal("Login successful!", "You have successfully logged in!", "success", {
+        buttons: false,
+      });
       setTimeout(() => {
         location.href = "/"
-      }, 300)
+      }, 3000)
     } else {
       swal({
         title: "Error!",
