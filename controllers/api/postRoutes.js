@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../../models");
-const sequelize = require("../../config/connection");
+const auth = require("../../utils/auth");
 
 // All requests are made to /api/posts/...
 
@@ -33,6 +33,10 @@ router.get("/:id", async (req, res) => {
         {
           model: User,
           attributes: ["name"]
+        },
+        {
+          model: Comment,
+          attributes: ["id", "description", "date_created"],
         }
       ]
     })
@@ -63,6 +67,7 @@ router.post("/", async (req, res) => {
   }
 })
 
+// Updates a post
 router.put("/:id", async (req, res) => {
   try {
     const postData = await Post.update(
@@ -80,6 +85,25 @@ router.put("/:id", async (req, res) => {
     res.json({ "Message": "Post updated successfully!"})
   } catch (err) {
     res.status(500).json(err)
+  }
+})
+
+// Deletes a post with an id
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    const postData = await Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+
+    if (!postData) {
+      res.status(404).json({message: "No post found that matches ID provided."})
+    };
+
+    res.json({message: "Successfully deleted post!"});
+  } catch (err) {
+    res.status(500).json(err);
   }
 })
 

@@ -1,6 +1,6 @@
 // Temporary code
 const router = require("express").Router();
-const { User, Post } = require("../../models");
+const { User, Post, Comment } = require("../../models");
 
 // All requests are made to /api/users/...
 
@@ -28,14 +28,14 @@ router.get("/:id", async (req, res) => {
           model: Post,
           attributes: ["id", "title", "description", "date_created"]
         },
-        // {
-        //   model: Comment,
-        //   attributes: ["id", "post_id", "description", "date_created"],
-        //   include: {
-        //     model: Post,
-        //     attributes: ["title"]
-        //   }
-        // }
+        {
+          model: Comment,
+          attributes: ["id", "post_id", "description", "date_created"],
+          include: {
+            model: Post,
+            attributes: ["title"]
+          }
+        }
       ]
     });
 
