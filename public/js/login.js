@@ -7,7 +7,9 @@ const logIn = async (userEmail, userPassword) => {
       email: userEmail,
       password: userPassword
     })
-  }).then(location.href="/")
+  }).then(setTimeout(() => {
+    location.href="/"
+  }, 300))
   .catch(err)
 }
 

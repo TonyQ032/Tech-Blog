@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const auth = require("../utils/auth"); 
 
-// Prevent non logged in users from viewing the homepage
+// Home page
 router.get("/", async (req, res) => {
   try {
     if (req.session.logged_in) {
@@ -16,6 +16,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Login page
 router.get("/login", (req, res) => {
   try {
     res.render("login");
@@ -24,6 +25,16 @@ router.get("/login", (req, res) => {
   }
 });
 
+// Signup page
+router.get("/signup", (req, res) => {
+  try {
+    res.render("signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// User dashboard
 router.get("/dashboard", auth, async (req, res) => {
   try {
     res.render("dashboard",{
