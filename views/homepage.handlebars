@@ -1,5 +1,17 @@
-<section id="post-container">
+<section id="post-container" user-id="{{user_id}}">
+  {{#if posts}}
+
   {{#each posts as |post|}}
-    {{> post}}
+  {{> post}}
   {{/each}}
+
+  {{else}}
+  
+  <div class="error-container">
+    <h2>It looks like there's no posts right now!</h2>
+    <p>Be the first to make one by signing up <a href="/login">here!</a></p>
+  </div>
+
+  {{/if}}
+
 </section>

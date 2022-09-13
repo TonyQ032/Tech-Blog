@@ -5,11 +5,8 @@
   gap: 15px;
 }
 
-.post-comment-wrapper, .add-comment-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.post-comment-wrapper,
+.add-comment-container {
   gap: 5px;
 }
 
@@ -21,7 +18,7 @@
   border-radius: 0.5rem;
   padding: 10px 20px;
   cursor: pointer;
-  transition: 200ms;
+  transition: 300ms;
 }
 
 .post-card:hover {
@@ -36,28 +33,21 @@
   box-shadow: 8px 5px 5px rgb(0 0 0 / 75%);
   border-radius: 0.5rem;
   padding: 10px 20px;
-  transition: 200ms;
 }
 
-.comment-card:hover {
-  position: relative;
-  transform: translateY(-3px);
-}
-
-.add-comment-container {
-  width: 100%;
+.card-header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.date-created {
+  width: 30%;
 }
 
 .create-comment-form {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 5px;
 }
 
 .create-comment-form textarea {
@@ -72,4 +62,32 @@
 
 label {
   text-align: center;
+}
+
+.error-container, .add-comment-container, .comment-text-wrapper, .create-comment-form, .post-comment-wrapper, .add-comment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+}
+
+.username, .commenter-name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+@media (max-width: 750px) {
+  .card-header {
+    display: block;
+  }
+
+  .date-created {
+    width: 100%;
+  }
 }

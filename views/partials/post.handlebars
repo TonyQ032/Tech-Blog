@@ -14,19 +14,22 @@
   </div>
 
   {{!-- Checks if the post has any comments, if there are, it loads them in the background --}}
-  {{#if comments}}
-  {{#each comments as |comment|}}
-  {{> comment}}
-  {{/each}}
-  {{/if}}
+  <div class="comment-text-wrapper">
+    {{#if comments}}
+    {{#each comments as |comment|}}
+    {{> comment}}
+    {{/each}}
+    {{/if}}
 
 
-  <form class="create-comment-form">
-    <label for="create-comment-content">Add a comment!</label>
-    <textarea type="text" class="form-control" id="create-comment-content"></textarea>
+    <form class="create-comment-form">
+      <label for="create-comment-content-{{id}}">Add a comment!</label>
+      <textarea type="text" class="form-control" id="create-comment-content-{{id}}"></textarea>
 
-    <button id="create-comment-btn" class="btn btn-primary">Add Comment <i class="bi bi-plus-lg"></i></button>
+      <button id="create-comment-btn" class="btn btn-primary">Add Comment <i class="bi bi-plus-lg"></i></button>
 
-  </form>
+    </form>
+
+  </div>
 
 </div>
