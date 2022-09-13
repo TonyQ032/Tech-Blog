@@ -1,4 +1,5 @@
 /* Main CSS */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
 body {
   background-image: url("../assets/svg/low-poly-grid-haikei-16-9.svg");

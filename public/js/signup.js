@@ -25,7 +25,7 @@ const verifyEmail = (email) => {
   } else {
     swal({
       title: "Error!",
-      text: "Looks like the email missing or invalid!",
+      text: "Looks like the email is missing or invalid!",
       icon: "error",
       button: "Try Again"
     });
@@ -77,6 +77,6 @@ signupButton.addEventListener("click", (event) => {
     });
     setTimeout(() => {
       signup(username, email, password);
-    }, 3000)
+    }, 2700)
   }
 })

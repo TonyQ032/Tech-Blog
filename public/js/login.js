@@ -19,7 +19,7 @@ const logIn = async (userEmail, userPassword) => {
     } else {
       swal({
         title: "Error!",
-        text: "Incorrect email or password.",
+        text: "Incorrect email or password entered!",
         icon: "error",
         button: "Try Again"
       });
