@@ -7,4 +7,15 @@
 
 .post-card {
   border: 1px solid black;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 8px 5px 5px rgb(0 0 0 / 75%);
+  border-radius: 0.5rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.post-card:hover {
+  position: relative;
+  transform: translateY(-3px);
 }

@@ -1,7 +1,24 @@
 /* Main CSS */
 
+body {
+  background-image: url("../assets/svg/low-poly-grid-haikei-16-9.svg");
+  padding: 0 8vw;
+}
+
 header {
-  margin-bottom: 75px;
+  margin-bottom: 90px;
+}
+
+p, a, h1, h3, header, label, small {
+  color: #fff !important;
+}
+
+h2, .post-description {
+  color: #000 !important
+}
+
+nav {
+  background-color: #011828 !important;
 }
 
 .btn, .btn-outline-success {
@@ -11,9 +28,10 @@ header {
 }
 
 .btn:hover, .btn-outline-success:hover {
-  background-color: blue !important;
+  background-color: #297ea6 !important;
 }
 
 .navbar-brand {
   font-size: 30px;
 }
+
