@@ -32,7 +32,8 @@ router.get("/", async (req, res) => {
     if (req.session.logged_in) {
       res.render("homepage", {
         posts,
-        logged_in: req.session.logged_in
+        logged_in: req.session.logged_in,
+        user_id: req.session.user_id
       })
     } else {
       res.render("homepage", {
@@ -66,7 +67,8 @@ router.get("/signup", (req, res) => {
 router.get("/dashboard", auth, async (req, res) => {
   try {
     res.render("dashboard",{
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id
     });
   } catch (err) {
     res.status(500).json(err);

@@ -10,13 +10,13 @@ revealPostFormBtn.addEventListener("click", () => {
   revealPostFormBtn.style.display = "none";
 })
 
-const createPost = async (postTitle, text, userId) => {
+const createPost = async (postTitle, postContent, userId) => {
   await fetch("/api/posts/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       title: postTitle,
-      description: text,
+      description: postContent,
       user_id: userId
     })
   }).then(setTimeout(() => {
@@ -34,7 +34,8 @@ createPostBtn.addEventListener("click", (event) => {
   const postTitle = document.querySelector("#create-post-name").value;
   const postContent = document.querySelector("#create-post-content").value;
 
-  console.log(postTitle, postContent)
+  //Retrieves logged in users ID
+  const userId = document.querySelector(".dashboard-wrapper").getAttribute("data-value")
 
   // Checks if fields are empty or not
   if (!postTitle || !postContent) {
@@ -50,7 +51,7 @@ createPostBtn.addEventListener("click", (event) => {
       buttons: false,
     });
     setTimeout(() => {
-      createPost(postTitle, postContent, 1);
+      createPost(postTitle, postContent, userId);
     }, 2700)
   }
 })
