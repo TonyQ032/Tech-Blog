@@ -10,7 +10,7 @@ header {
   margin-bottom: 90px;
 }
 
-p, a, h1, h3, header, label, small {
+a, h1, h3, header, label, small {
   color: #fff !important;
 }
 
@@ -38,6 +38,10 @@ button {
 
 .navbar-brand {
   font-size: 30px;
+}
+
+label {
+  text-decoration: underline;
 }
 
 @media (max-width: 300px) {

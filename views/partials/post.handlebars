@@ -1,7 +1,32 @@
-<div class="post-card">
-  <h2 class="post-title" value="{{id}}">{{title}}</h2>
+<div class="post-comment-wrapper">
+  <div class="post-card">
 
-  <p class="username">{{post.user.name}}</p>
+    <div class="card-header">
+      <h2 class="post-title" value="{{id}}">{{title}}</h2>
+      <p class="date-created">{{date_created}}</p>
+    </div>
 
-  <p class="post-description">{{description}}</p>
+    <p class="username">{{user.name}}</p>
+
+    <p class="post-description">{{description}}</p>
+    <p>{{name}}</p>
+
+  </div>
+
+  {{!-- Checks if the post has any comments, if there are, it loads them in the background --}}
+  {{#if comments}}
+  {{#each comments as |comment|}}
+  {{> comment}}
+  {{/each}}
+  {{/if}}
+
+
+  <form class="create-comment-form">
+    <label for="create-comment-content">Add a comment!</label>
+    <textarea type="text" class="form-control" id="create-comment-content"></textarea>
+
+    <button id="create-comment-btn" class="btn btn-primary">Add Comment <i class="bi bi-plus-lg"></i></button>
+
+  </form>
+
 </div>
