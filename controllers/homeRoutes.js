@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const auth = require("../utils/auth");
 const { User, Post, Comment } = require("../models");
+const sequelize = require ("../config/connection");
 
 // Home page
 router.get("/", async (req, res) => {
@@ -9,6 +10,7 @@ router.get("/", async (req, res) => {
     // Retrieve all posts from database
     const postData = await Post.findAll({
       attributes: ["id", "description", "date_created", "title"],
+      order: sequelize.literal('id DESC'),
       include: [
         {
           model: Comment,
