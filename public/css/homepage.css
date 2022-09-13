@@ -1,1 +1,10 @@
 /* Homepage */
+#post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.post-card {
+  border: 1px solid black;
+}

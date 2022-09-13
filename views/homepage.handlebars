@@ -1,2 +1,8 @@
 {{!-- Temporary --}}
 <h2>This text comes from the homepage!</h2>
+
+<section id="post-container">
+  {{#each posts as |post|}}
+    {{> post}}
+  {{/each}}
+</section>
