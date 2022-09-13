@@ -21,6 +21,10 @@ nav {
   background-color: #011828 !important;
 }
 
+button {
+  transition: 300ms;
+}
+
 .btn, .btn-outline-success {
   background-color: #7762ff !important;
   color: white;
@@ -35,3 +39,8 @@ nav {
   font-size: 30px;
 }
 
+@media (max-width: 300px) {
+  .navbar-brand {
+    font-size: 24px;
+  }
+}

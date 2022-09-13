@@ -25,7 +25,7 @@ const verifyEmail = (email) => {
   } else {
     swal({
       title: "Error!",
-      text: "Email missing or invalid.",
+      text: "Looks like the email missing or invalid!",
       icon: "error",
       button: "Try Again"
     });
@@ -37,7 +37,7 @@ const verifyEmail = (email) => {
 const errorMessage = () => {
   swal({
     title: "Error!",
-    text: "Looks like an input field is missing.",
+    text: "Looks like an input field is missing!",
     icon: "error",
     button: "Try Again"
   });

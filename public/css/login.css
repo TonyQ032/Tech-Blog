@@ -3,6 +3,30 @@
   display: none;
 }
 
-input {
+.login-form input {
   border: 1px solid black;
+  box-shadow: 8px 5px 5px rgb(0 0 0 / 75%);
+  border-radius: 0.5rem;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  width: 500px;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-wrapper p {
+  text-align: center;
+  margin-top: 15px;
+}
+
+@media (max-width: 550px) {
+  .login-form input {
+    width: 80vw;
+  }
 }
