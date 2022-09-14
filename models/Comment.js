@@ -33,7 +33,7 @@ Comment.init(
       defaultValue: DataTypes.NOW,
     },
     description: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.TEXT,
     },
   },
   {

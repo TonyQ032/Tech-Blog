@@ -28,7 +28,7 @@ Post.init(
       type: DataTypes.STRING,
     },
     description: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.TEXT,
     },
   },
   {
