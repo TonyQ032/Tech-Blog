@@ -45,6 +45,47 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/post/:id", async (req, res) => {
+  try {
+
+    // Retrieve all posts from database
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: ["id", "description", "date_created", "title"],
+      include: [
+        {
+          model: User,
+          attributes: ["name"]
+        },
+        {
+          model: Comment,
+          attributes: ["id", "description", "post_id", "user_id", "date_created"],
+          include: {
+            model: User,
+            attributes: ["name"]
+          }
+        }
+      ]
+    });
+
+    const post = postData.get({ plain: true });
+
+    if (req.session.logged_in) {
+      res.render("onepost", {
+        post,
+        logged_in: req.session.logged_in,
+        user_id: req.session.user_id
+      })
+    } else {
+      res.redirect("/login");
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Login page
 router.get("/login", (req, res) => {
   try {

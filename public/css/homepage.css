@@ -5,6 +5,14 @@
   gap: 15px;
 }
 
+.post-link {
+  text-decoration: none;
+}
+
+.post-link p {
+  color: #000;
+}
+
 .post-comment-wrapper,
 .add-comment-container {
   gap: 5px;
@@ -28,11 +36,17 @@
 
 .comment-card {
   border: 1px solid black;
-  width: 70%;
+  width: 80%;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 8px 5px 5px rgb(0 0 0 / 75%);
   border-radius: 0.5rem;
   padding: 10px 20px;
+  transition: 300ms;
+}
+
+.comment-card:hover {
+  position: relative;
+  transform: translateY(-3px);
 }
 
 .card-header {
@@ -80,6 +94,10 @@ h2 {
 
 .error-container p, .error-container h2 {
   color: #fff !important;
+}
+
+.date-created {
+  font-style: italic;
 }
 
 @media (max-width: 750px) {

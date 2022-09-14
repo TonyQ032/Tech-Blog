@@ -1,0 +1,33 @@
+<div class="post-comment-wrapper">
+  <div class="post-card">
+
+    <div class="card-header">
+      <h2 class="post-title" value="{{post.id}}">{{post.title}}</h2>
+      <p class="date-created">Posted on: {{post.date_created}}</p>
+    </div>
+
+    <p class="username">{{post.user.name}}</p>
+
+    <p class="post-description">{{post.description}}</p>
+
+  </div>
+
+  {{!-- Checks if the post has any comments, if there are, it loads them in the background --}}
+  <div class="comment-text-wrapper">
+    {{#if post.comments}}
+    {{#each post.comments as |comment|}}
+    {{> comment}}
+    {{/each}}
+    {{/if}}
+
+    <form class="create-comment-form">
+      <label for="create-comment-content-{{id}}">Add a comment!</label>
+      <textarea type="text" class="form-control" id="create-comment-content-{{id}}"></textarea>
+
+      <button id="create-comment-btn" class="btn btn-primary">Add Comment <i class="bi bi-plus-lg"></i></button>
+
+    </form>
+
+  </div>
+
+</div>
