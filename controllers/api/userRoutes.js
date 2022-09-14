@@ -83,12 +83,19 @@ router.post("/login", async (req, res) => {
 // Used to create new users
 router.post("/create", async (req, res) => {
   try {
-    User.create(req.body)
+    await User.create(req.body)
+
+    const userId = await User.findOne({
+      where: {
+        email: req.body.email
+      }
+    })
 
     req.session.save(() => {
       req.session.logged_in = true;
+      req.session.user_id = userId.id;
 
-      res.status(200).json({ "User": req.body, "Message": "Successfully created a new user!" });
+      res.status(200).json({ User: req.body, Message: "Successfully created a new user!", user_id: userId.id });
     });
 
   } catch (err) {
