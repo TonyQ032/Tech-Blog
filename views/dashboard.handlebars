@@ -3,9 +3,9 @@
 
   <h2 id="dashboard-header" class="dashboard-categories">Dashboard</h2>
 
-  <h2 class="dashboard-categories">Posts</h2>
+  {{!-- Create a post section --}}
 
-  {{!-- This is where the user posts partials will load --}}
+  <h2 class="dashboard-categories">Posts</h2>
 
   <button id="reveal-post-btn" class="btn btn-primary">Create Post <i class="bi bi-plus-lg"></i></button>
 
@@ -28,25 +28,32 @@
 
   </div>
 
+  {{!-- Posts section --}}
+
   <div class="dashboard-post-container">
     {{#if user.posts}}
     {{#each user.posts as |post|}}
-    <a class="post-link" href="/post/{{post.id}}">
 
-      <div class="post-card">
+    <div class="post-card">
 
-        <div class="card-header">
-          <h2 class="post-title" value="{{post.id}}">{{post.title}}</h2>
-          {{!-- <a href="/">TAKE ME HOME</a> --}}
-          <p class="date-created">Posted on: {{post.date_created}}</p>
-        </div>
-
-        <p class="username">{{post.user.name}}</p>
-
-        <p class="post-description">{{post.description}}</p>
-
+      {{!-- Allows the user to view their comment, edit, or delete it --}}
+      <div class="edit-header">
+        <a class="dashboard-post-link" href="/post/{{post.id}}">View</a>
+        <a class="dashboard-update-link" href="/post/update/{{post.id}}">Edit</a>
+        <a class="dashboard-delete-link" href="/">Delete</a>
       </div>
-    </a>
+
+      <div class="card-header">
+        <h2 class="post-title" value="{{post.id}}">{{post.title}}</h2>
+        {{!-- <a href="/">TAKE ME HOME</a> --}}
+        <p class="date-created">Posted on: {{post.date_created}}</p>
+      </div>
+
+      <p class="username">{{post.user.name}}</p>
+
+      <p class="post-description">{{post.description}}</p>
+
+    </div>
 
     {{/each}}
 
@@ -54,6 +61,8 @@
     <p class="db-error">You have no posts at the moment. Click the "Create Post +" button above to get started!</p>
     {{/if}}
   </div>
+
+  {{!-- Comments section --}}
 
   <div class="dashboard-post-container">
     <h2 class="dashboard-categories">Comments</h2>

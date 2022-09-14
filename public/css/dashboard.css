@@ -69,6 +69,19 @@
   margin: 0;
 }
 
+.edit-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.edit-header a {
+  text-decoration: underline;
+  color: #000 !important;
+}
+
 @media (max-width: 550px) {
 
   .create-post-form input,
