@@ -8,9 +8,20 @@ const signup = async (userName, userEmail, userPassword) => {
       email: userEmail,
       password: userPassword
     })
-  }).then(setTimeout(() => {
-    location.href="/login"
-  }, 300))
+  })
+
+  await fetch("/api/users/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email: userEmail,
+      password: userPassword
+    })
+  })
+  
+  .then(setTimeout(() => {
+    location.href="/"
+  }, 500))
   .catch(err)
 }
 
@@ -77,6 +88,6 @@ signupButton.addEventListener("click", (event) => {
     });
     setTimeout(() => {
       signup(username, email, password);
-    }, 2700)
+    }, 2500)
   }
 })
