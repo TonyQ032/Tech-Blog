@@ -49,11 +49,35 @@
     </a>
 
     {{/each}}
+
+    {{else}}
+    <p class="db-error">You have no posts at the moment. Click the "Create Post +" button above to get started!</p>
     {{/if}}
   </div>
 
   <div class="dashboard-post-container">
     <h2 class="dashboard-categories">Comments</h2>
+
+    {{#if user.comments}}
+
+    {{#each user.comments as |comment|}}
+
+    <div class="comment-card" comment-id="{{comment.id}}">
+
+      <p class="comment-post-title">Commented on: {{comment.post.title}}</p>
+      <p class="commenter-time">Posted on: {{comment.date_created}}</p>
+      <p class="commenter-comment">{{comment.description}}</p>
+
+    </div>
+
+    {{/each}}
+
+    {{else}}
+
+    <p class="db-error">You have no comments at the moment. Click on a post on the homepage to make one!</p>
+
+    {{/if}}
+
   </div>
 
 </div>

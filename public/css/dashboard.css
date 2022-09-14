@@ -39,6 +39,18 @@
   gap: 15px;
 }
 
+.db-error {
+  color: #fff;
+}
+
+.comment-post-title {
+  font-weight: bold;
+}
+
+.commenter-time {
+  font-style: italic;
+}
+
 .create-post-form input,
 .create-post-form textarea {
   border: 1px solid black;
