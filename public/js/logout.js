@@ -10,4 +10,6 @@ const logOut = async () => {
 
 const signOutButton = document.querySelector("#sign-out");
 
-signOutButton.addEventListener("click", logOut);
+if (signOutButton) {
+  signOutButton.addEventListener("click", logOut);
+}
