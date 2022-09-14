@@ -1,4 +1,25 @@
 /* Login CSS */
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#login-header {
+  color: #fff !important;
+  background-color: #011828;
+  width: 500px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 0 0 15px;
+  box-shadow: 8px 5px 5px rgb(0 0 0 / 75%);
+  border: 1px solid black;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .signup-wrapper {
   display: none;
 }
@@ -28,6 +49,10 @@
 
 @media (max-width: 550px) {
   .login-form input {
+    width: 80vw;
+  }
+
+  #login-header {
     width: 80vw;
   }
 }

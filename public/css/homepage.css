@@ -1,4 +1,18 @@
 /* Homepage */
+#homepage-header {
+  color: #fff !important;
+  background-color: #011828;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 15px 0;
+  box-shadow: 8px 5px 5px rgb(0 0 0 / 75%);
+  border: 1px solid black;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 #post-container {
   display: flex;
   flex-direction: column;
@@ -7,6 +21,7 @@
 
 .post-link {
   text-decoration: none;
+  width: 100%;
 }
 
 .post-link p {
@@ -14,7 +29,8 @@
 }
 
 .post-comment-wrapper,
-.add-comment-container {
+.add-comment-container,
+.dashboard-post-container {
   gap: 5px;
 }
 
@@ -25,7 +41,7 @@
   box-shadow: 8px 5px 5px rgb(0 0 0 / 75%);
   border-radius: 0.5rem;
   padding: 10px 20px;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: 300ms;
 }
 
@@ -81,6 +97,15 @@ label {
   flex-direction: column;
   width: 100%;
   gap: 5px;
+}
+
+.dashboard-post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
 }
 
 .username, .commenter-name {

@@ -1,6 +1,10 @@
 {{!-- This page is for all the posts that the logged in user has created --}}
 <div class="dashboard-wrapper" data-value="{{user_id}}">
 
+  <h2 id="dashboard-header" class="dashboard-categories">Dashboard</h2>
+
+  <h2 class="dashboard-categories">Posts</h2>
+
   {{!-- This is where the user posts partials will load --}}
 
   <button id="reveal-post-btn" class="btn btn-primary">Create Post <i class="bi bi-plus-lg"></i></button>
@@ -9,12 +13,12 @@
 
     <form class="create-post-form">
       <div class="form-group">
-        <label for="create-post-name">Title</label>
+        <label for="create-post-name">Post Title</label>
         <input type="text" class="form-control" id="create-post-name">
       </div>
 
       <div class="form-group">
-        <label for="create-post-content">Content</label>
+        <label for="create-post-content">Description</label>
         <textarea type="text" class="form-control" id="create-post-content"></textarea>
       </div>
 
@@ -22,6 +26,34 @@
 
     </form>
 
+  </div>
+
+  <div class="dashboard-post-container">
+    {{#if user.posts}}
+    {{#each user.posts as |post|}}
+    <a class="post-link" href="/post/{{post.id}}">
+
+      <div class="post-card">
+
+        <div class="card-header">
+          <h2 class="post-title" value="{{post.id}}">{{post.title}}</h2>
+          {{!-- <a href="/">TAKE ME HOME</a> --}}
+          <p class="date-created">Posted on: {{post.date_created}}</p>
+        </div>
+
+        <p class="username">{{post.user.name}}</p>
+
+        <p class="post-description">{{post.description}}</p>
+
+      </div>
+    </a>
+
+    {{/each}}
+    {{/if}}
+  </div>
+
+  <div class="dashboard-post-container">
+    <h2 class="dashboard-categories">Comments</h2>
   </div>
 
 </div>

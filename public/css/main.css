@@ -4,6 +4,7 @@
 body {
   background-image: url("../assets/svg/low-poly-grid-haikei-16-9.svg");
   padding: 0 8vw;
+  margin: 50px 0;
 }
 
 header {

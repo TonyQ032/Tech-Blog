@@ -107,10 +107,39 @@ router.get("/signup", (req, res) => {
 // User dashboard
 router.get("/dashboard", auth, async (req, res) => {
   try {
-    res.render("dashboard",{
-      logged_in: req.session.logged_in,
-      user_id: req.session.user_id
-    });
+    const userData = await User.findOne({
+      where: {
+        id: req.session.user_id
+      },
+      attributes: ["id", "name"],
+      include: [
+        {
+          model: Post,
+          attributes: ["id", "title", "description", "date_created"]
+        },
+        {
+          model: Comment,
+          attributes: ["id", "description", "post_id", "user_id", "date_created"],
+          include: {
+            model: Post,
+            attributes: ["title"]
+          }
+        }
+      ]
+    })
+
+    const user = userData.get({ plain: true });
+
+    if (user) {
+      res.render("dashboard",{
+        user,
+        logged_in: req.session.logged_in,
+        user_id: req.session.user_id
+      });
+    } else {
+      res.json(user)
+    }
+
   } catch (err) {
     res.status(500).json(err);
   }
