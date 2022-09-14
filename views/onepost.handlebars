@@ -1,4 +1,4 @@
-<div class="post-comment-wrapper">
+<div class="post-comment-wrapper" user_id="{{user_id}}">
   <div class="post-card">
 
     <div class="card-header">
@@ -21,8 +21,8 @@
     {{/if}}
 
     <form class="create-comment-form">
-      <label for="create-comment-content-{{id}}">Add a comment!</label>
-      <textarea type="text" class="form-control" id="create-comment-content-{{id}}"></textarea>
+      <label for="create-comment">Add a comment!</label>
+      <textarea type="text" class="form-control" id="create-comment"></textarea>
 
       <button id="create-comment-btn" class="btn btn-primary">Add Comment <i class="bi bi-plus-lg"></i></button>
 
@@ -31,3 +31,5 @@
   </div>
 
 </div>
+
+<script src="/js/createcomment.js"></script>
