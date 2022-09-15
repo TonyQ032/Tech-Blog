@@ -20,6 +20,12 @@
   font-weight: bold;
 }
 
+#dashboard-greeter {
+  color: white !important;
+  font-size: 40px;
+  margin-top: 30px;
+}
+
 #dashboard-header {
   width: 100%;
   margin: 0 0 -15px;

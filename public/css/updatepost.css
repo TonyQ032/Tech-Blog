@@ -1,0 +1,25 @@
+.update-post-wrapper, .update-post-form, .form-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.update-post-form {
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.update-post-form textarea {
+  height: 200px;
+}
+
+.form-group {
+  width: 80%;
+}
+
+#update-header {
+  width: 100%;
+  margin: 0 0 -15px;
+}
