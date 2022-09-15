@@ -77,7 +77,7 @@ for (let i = 0; i < deleteBtn.length; i++) {
 
     // Alerts user with a warning, will only delete post if user confirms they want to
     swal(`WARNING:
-  Are you sure you want to delete this event? This action cannot be undone.`, {
+  Are you sure you want to delete this post? This action cannot be undone.`, {
       buttons: {
         cancel: "Cancel",
         delete: {
