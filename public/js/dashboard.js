@@ -20,7 +20,7 @@ const createPost = async (postTitle, postContent, userId) => {
       user_id: userId
     })
   }).then(setTimeout(() => {
-    location.href="/"
+    location.href="/dashboard"
   }, 300))
   .catch(err)
 }
