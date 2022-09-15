@@ -10,6 +10,7 @@ revealPostFormBtn.addEventListener("click", () => {
   revealPostFormBtn.style.display = "none";
 })
 
+// Function used to create posts
 const createPost = async (postTitle, postContent, userId) => {
   await fetch("/api/posts/", {
     method: "POST",
@@ -20,9 +21,9 @@ const createPost = async (postTitle, postContent, userId) => {
       user_id: userId
     })
   }).then(setTimeout(() => {
-    location.href="/dashboard"
+    location.href = "/dashboard"
   }, 300))
-  .catch(err)
+    .catch(err)
 }
 
 // Creates a new post when fields are filled and button is pressed
@@ -55,3 +56,48 @@ createPostBtn.addEventListener("click", (event) => {
     }, 2700)
   }
 })
+
+// Function used to delete a post
+const deletePost = async (postId) => {
+  await fetch(`/api/posts/${postId}`, {
+    method: "DELETE"
+  }).then(setTimeout(() => {
+    location.href = "/dashboard"
+  }, 300))
+    .catch(err)
+}
+
+// Grabs arrow of all delete buttons
+const deleteBtn = document.getElementsByClassName("dashboard-delete-link");
+
+for (let i = 0; i < deleteBtn.length; i++) {
+  deleteBtn[i].addEventListener("click", () => {
+    // Grabs corresponding post ID
+    const postId = deleteBtn[i].getAttribute("post-id");
+
+    // Alerts user with a warning, will only delete post if user confirms they want to
+    swal(`WARNING:
+  Are you sure you want to delete this event? This action can not be undone.`, {
+      buttons: {
+        cancel: "Cancel",
+        delete: {
+          text: "Delete",
+          value: "delete"
+        }
+      },
+    })
+      .then((value) => {
+        switch (value) {
+          case "delete":
+            swal("Post deleted!", "You have successfully deleted the post!", "success")
+
+            setTimeout(() => {
+              deletePost(postId)
+            }, 2700)
+
+              .catch(err => err ? console.log(err) : console.log("Success!"));
+            break;
+        }
+      });
+  })
+}

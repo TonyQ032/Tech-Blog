@@ -80,6 +80,7 @@
 .edit-header a {
   text-decoration: underline;
   color: #000 !important;
+  cursor: pointer;
 }
 
 @media (max-width: 550px) {
