@@ -77,7 +77,7 @@ for (let i = 0; i < deleteBtn.length; i++) {
 
     // Alerts user with a warning, will only delete post if user confirms they want to
     swal(`WARNING:
-  Are you sure you want to delete this event? This action can not be undone.`, {
+  Are you sure you want to delete this event? This action cannot be undone.`, {
       buttons: {
         cancel: "Cancel",
         delete: {
@@ -89,7 +89,9 @@ for (let i = 0; i < deleteBtn.length; i++) {
       .then((value) => {
         switch (value) {
           case "delete":
-            swal("Post deleted!", "You have successfully deleted the post!", "success")
+            swal("Post deleted!", "You have successfully deleted the post!", "success", {
+              buttons: false,
+            })
 
             setTimeout(() => {
               deletePost(postId)

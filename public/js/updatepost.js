@@ -29,7 +29,7 @@ updateBtn.addEventListener("click", (event) => {
   if (title && description) {
     console.log(postId, title, description);
 
-    swal("Post updated!", "You have successfully created a post!", "success", {
+    swal("Post updated!", "You have successfully updated your post!", "success", {
       buttons: false,
     });
     setTimeout(() => {
