@@ -11,7 +11,16 @@
 
   <div class="error-container">
     <h2>It looks like there's no posts right now!</h2>
+
+    {{#if logged_in}}
+
+    <p>Be the first to make one by going to your <a href="/dashboard">dashboard!</a></p>
+
+    {{else}}
+
     <p>Be the first to make one by signing up <a href="/login">here!</a></p>
+
+    {{/if}}
   </div>
 
   {{/if}}
